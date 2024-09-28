@@ -1,5 +1,3 @@
-// Will this screw anything up?
-// Apparently not. 
 function createListOfReferences() {
 	let f = dv.current().file.frontmatter.name[0].first
 	let l = dv.current().file.frontmatter.name[1].last
