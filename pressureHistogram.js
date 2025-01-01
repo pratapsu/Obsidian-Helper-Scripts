@@ -9,6 +9,9 @@ function getWeeklyHistogram(wkNum) {
 
 	let buckets = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	p.forEach((page) => {
+		if (page.systolic == null) {
+			return;
+		}
 		buckets = buckets.map((num, index) => {
 			if (index == 0) {
 				num += page.systolic.reduce((numInRange, curr) => {
@@ -42,6 +45,7 @@ function drawHistogram() {
 	    	["11/22 - 11/28", ...getWeeklyHistogram(4)],
 	    	["11/29 - 12/5", ...getWeeklyHistogram(5)],
 			["12/6 - 12/12", ...getWeeklyHistogram(6)],
+			["12/13 - 12/19", ...getWeeklyHistogram(7)]
 		]
     )
 }
