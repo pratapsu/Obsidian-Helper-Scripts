@@ -39,13 +39,21 @@ function drawHistogram() {
     dv.table(
         ["Week #", "< 110", "< 115", "< 120", "< 125", "< 130", "< 135", "< 140", "< 145", "< 150", "< 155", "< 160", "Gt 160"], 
     	[
-  	    	["11/1 - 11/7", ...getWeeklyHistogram(1)],
-	    	["11/8 - 11/14", ...getWeeklyHistogram(2)],
-	    	["11/15 - 11/21", ...getWeeklyHistogram(3)], 
-	    	["11/22 - 11/28", ...getWeeklyHistogram(4)],
-	    	["11/29 - 12/5", ...getWeeklyHistogram(5)],
-			["12/6 - 12/12", ...getWeeklyHistogram(6)],
-			["12/13 - 12/19", ...getWeeklyHistogram(7)]
+  	    	[1,  ...getWeeklyHistogram(1)],
+	    	[2, ...getWeeklyHistogram(2)],
+	    	[3, ...getWeeklyHistogram(3)], 
+	    	[4, ...getWeeklyHistogram(4)],
+	    	[5, ...getWeeklyHistogram(5)],
+			[6, ...getWeeklyHistogram(6)],
+			[7, ...getWeeklyHistogram(7)],
+			[8, ...getWeeklyHistogram(8)],
+			[9, ...getWeeklyHistogram(9)],
+			[10, ...getWeeklyHistogram(10)],
+			[11, ...getWeeklyHistogram(11)],
+			[12, ...getWeeklyHistogram(12)],
+			[13, ...getWeeklyHistogram(13)],
+			[14, ...getWeeklyHistogram(14)],
+			[15, ...getWeeklyHistogram(15)],
 		]
     )
 }
