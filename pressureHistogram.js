@@ -34,28 +34,15 @@ function getWeeklyHistogram(wkNum) {
 	return buckets
 }
 
+function row(i) {
+	return [i, ...getWeeklyHistogram(i)]
+}
 
 function drawHistogram() {
     dv.table(
         ["Week #", "< 110", "< 115", "< 120", "< 125", "< 130", "< 135", "< 140", "< 145", "< 150", "< 155", "< 160", "Gt 160"], 
-    	[
-  	    	[1,  ...getWeeklyHistogram(1)],
-	    	[2, ...getWeeklyHistogram(2)],
-	    	[3, ...getWeeklyHistogram(3)], 
-	    	[4, ...getWeeklyHistogram(4)],
-	    	[5, ...getWeeklyHistogram(5)],
-			[6, ...getWeeklyHistogram(6)],
-			[7, ...getWeeklyHistogram(7)],
-			[8, ...getWeeklyHistogram(8)],
-			[9, ...getWeeklyHistogram(9)],
-			[10, ...getWeeklyHistogram(10)],
-			[11, ...getWeeklyHistogram(11)],
-			[12, ...getWeeklyHistogram(12)],
-			[13, ...getWeeklyHistogram(13)],
-			[14, ...getWeeklyHistogram(14)],
-			[15, ...getWeeklyHistogram(15)],
-		]
-    )
+   		[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i) => row(i))
+	)
 }
 
 drawHistogram()
