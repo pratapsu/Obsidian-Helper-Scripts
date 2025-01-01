@@ -8,8 +8,8 @@
 
 function goodReadings() {
 	const { DateTime } = dv.luxon
-	const begin = DateTime.fromString("Jan 1, 2024", "LLL d, yyyy")
-    const end = DateTime.fromString("Dec 31, 2024", "LLL d, yyyy")
+	const begin = DateTime.fromString("Jan 1, 2025", "LLL d, yyyy")
+    const end = DateTime.fromString("Dec 31, 2025", "LLL d, yyyy")
 	let p = dv.pages('"Health"')
 		.filter(q => ((begin <= q.file.ctime) && (q.file.ctime <= end)))
 
@@ -23,7 +23,7 @@ function goodReadings() {
         })
 	})
 
-    dv.header(6, "Number of good systolic values in 2024: " + numGoodSystolicValues);
+    dv.header(6, "Number of good systolic values in 2025: " + numGoodSystolicValues);
 	
 	let numGoodDiastolicValues = 0
 	p.forEach((page) => {
@@ -35,7 +35,7 @@ function goodReadings() {
         })
 	})
 
-    dv.header(6, "Number of good diastolic values in 2024: " + numGoodDiastolicValues);
+    dv.header(6, "Number of good diastolic values in 2025: " + numGoodDiastolicValues);
 }
 
 goodReadings()
