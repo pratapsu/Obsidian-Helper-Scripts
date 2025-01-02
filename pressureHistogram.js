@@ -32,7 +32,16 @@ function getWeeklyHistogram(wkNum) {
 			return num
 		})		
 	})
-	return buckets
+	let max = Math.max(...buckets)
+	return buckets.map((v) => {
+		if (v == 0) {
+			return ""
+		} else if (v == max) {
+			return "**" + String(v) + "**"
+		} else {
+			return String(v)
+		}
+	})
 }
 
 function row(i) {
