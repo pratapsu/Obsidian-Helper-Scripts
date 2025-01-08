@@ -1,6 +1,7 @@
 // Takes a week number as input and returns a hsitorgram (an array of intergers)
 const { DateTime } = dv.luxon
 const begin = DateTime.fromString("Nov 1, 2024", "LLL d, yyyy")
+let sums = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 function getWeeklyHistogram(wkNum) {
 	const offset = 7*(wkNum - 1)
 	const beginInWeek = begin.plus({days: offset})
@@ -32,6 +33,7 @@ function getWeeklyHistogram(wkNum) {
 			return num
 		})		
 	})
+	sums = sums.map((v, i) => buckets[i] + v)
 	let max = Math.max(...buckets)
 	return buckets.map((v) => {
 		if (v == 0) {
@@ -44,19 +46,17 @@ function getWeeklyHistogram(wkNum) {
 	})
 }
 
-function row(i) {
-	return [i, ...getWeeklyHistogram(i)]
-}
-
 function drawHistogram() {
 	let nWeeks = Math.ceil(DateTime.now().diff(begin, 'days').days / 7)
 	let weeks = []
 	for (let i = 0; i < nWeeks; i++) {
 		weeks.push(i + 1)
 	}
+	let rows = weeks.map((i) => [i, ...getWeeklyHistogram(i)])
+	rows.push(["Total", ...sums])
     dv.table(
         ["Week #", "< 110", "< 115", "< 120", "< 125", "< 130", "< 135", "< 140", "< 145", "< 150", "< 155", "< 160", "Gt 160"], 
-		weeks.map((i) => row(i))
+		rows
 	)
 }
 

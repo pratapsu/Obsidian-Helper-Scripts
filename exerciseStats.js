@@ -14,7 +14,7 @@ function exerciseStats() {
 	p.forEach((page, index) => {
 		totalMins += parseInt(page.Exercise)
 	})
-	dv.header(6, "Total hours exercised in 2025: " + Math.floor(totalMins/60))
+	dv.header(6, "Total hours exercised in 2025: " + (totalMins/60).toFixed(2))
 }
 
 

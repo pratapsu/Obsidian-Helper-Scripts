@@ -14,27 +14,17 @@ function goodReadings() {
 		.filter(q => ((begin <= q.file.ctime) && (q.file.ctime <= end)))
 
     let numGoodSystolicValues = 0
+	let numGoodDiastolicValues = 0;
 	p.forEach((page) => {
-		if (page.systolic == null) {
-			return;
-		}
-        page.systolic.forEach(e => {
-            numGoodSystolicValues += (e < 125); 
-        })
+		if (page.systolic != null) {
+			numGoodSystolicValues += (page.systolic.sort((a, b) => a - b)[2] < 125)
+		} 
+		if (page.diastolic != null) {
+			numGoodDiastolicValues += (page.diastolic.sort((a, b) => a - b)[2] < 85)
+		} 
 	})
 
     dv.header(6, "Number of good systolic values in 2025: " + numGoodSystolicValues);
-	
-	let numGoodDiastolicValues = 0
-	p.forEach((page) => {
-		if (page.diastolic == null) {
-			return;
-		}
-        page.diastolic.forEach(e => {
-            numGoodDiastolicValues += (e < 85); 
-        })
-	})
-
     dv.header(6, "Number of good diastolic values in 2025: " + numGoodDiastolicValues);
 }
 
